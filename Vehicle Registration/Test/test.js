@@ -4,6 +4,7 @@ const RegisterVehicles = artifacts.require("RegisterVehicles");
 contract("Vehicle", accounts => {
     console.log(accounts);
 
+        // Check the Owner
     it("getOwner", async() => {
         let instance = await Vehicle.deployed();
 
@@ -11,6 +12,7 @@ contract("Vehicle", accounts => {
         assert.equal(owner, accounts[0]);
     });
 
+    // Check the Plate number
     it("getPlateNumber", async() => {
         let instance = await Vehicle.deployed();
 
@@ -18,6 +20,7 @@ contract("Vehicle", accounts => {
         assert.equal("hola6", plateNumber);
     })
 
+    // Check the Fuel type
     it("getFuel", async()=> {
         let instance = await Vehicle.deployed();
 
@@ -25,6 +28,7 @@ contract("Vehicle", accounts => {
         assert.equal(fuel, "PETROL");
     })
 
+    // Check if the new address was added to the Insurance array
     it("check Insurance", async() => {
         let instance = await Vehicle.deployed();
         await instance.addInsuredPeople("0xd9a3a480559Eb0767CC5dF3019571D8AB5695445");
@@ -38,7 +42,8 @@ contract("Vehicle", accounts => {
 // Vehicle address deployed in the Ganache: 0x78297A2900b4aE49b4f11Ef92557a99135eeD94B
 contract("RegisterVehicles", accounts => {
 
-    //// If you test to add with an account that is not the Owner.
+    // // Register a new Vehicle contract and check if it was added (Account used is NOT the Owner). 
+    // // It will trigger an error as you are not the Owner.
     // it("Add vehicles not Owner", async() => {
     //     let instance = await RegisterVehicles.deployed();
 
@@ -48,6 +53,7 @@ contract("RegisterVehicles", accounts => {
     //     assert.notEqual(true, isRegistered);
     // })
 
+    // Register a new Vehicle contract and check if it was added (Account used is the Owner)
     it("Add Vehicles Owner & Check it", async() => {
         let instance = await RegisterVehicles.deployed();
 
