@@ -12,8 +12,10 @@ contract RegisterVehicles is Ownable {
     mapping(string => Vehicle) registration;
     mapping(Vehicle => bool) registered;
     
+    // Total count of Vehicles registered
     uint numVehicles;
 
+    // Store a new Vehicle Smart Contract to the Registration Smart Contract
     function addVehicle(Vehicle _vehicle) public payable onlyOwner{
         require(_vehicle != Vehicle(address(0)));
         require(!registered[_vehicle]);
@@ -23,8 +25,14 @@ contract RegisterVehicles is Ownable {
         emit VehicleRegistered(_plateNum, _vehicle, numVehicles);
     }
 
+    // Get the Vehicle contract with the Plate number
     function getVehicle(string memory _plateNum) public view returns(Vehicle){
         Vehicle _vehicle = registration[_plateNum];
         return _vehicle;
+    }
+    
+    // Check if the Vehicle contract has been registered before
+    function isRegistered(Vehicle _vehicle) public view returns(bool) {
+        return (registered[_vehicle]);
     }
 }
