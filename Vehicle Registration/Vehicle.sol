@@ -2,6 +2,7 @@
 
 pragma solidity >= 0.4;
 
+// Create new Vehicle contract with all the Vehicle details and the insurance members
 contract Vehicle {
 
     enum TypeVehicle {
