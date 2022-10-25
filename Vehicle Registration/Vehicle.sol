@@ -29,19 +29,23 @@ contract Vehicle {
         model = model_;
         insuredPeople.push(owner_);
     }
-
+    
+    // Add people to the insurance
     function addInsuredPeople(address newInsured_) public {
         insuredPeople.push(newInsured_);
     }
 
+    // Get the Owner of the Car
     function getOwner() public view returns(address) {
         return (owner);
     }
 
+    // Get the plane Number of the Car
     function getPlateNum() public view returns(string memory){
         return (plateNumber);
     }
 
+    // Get the Fuel type
     function getFuel() public view returns(string memory){
         if(isPetrol){
             return ("PETROL");
