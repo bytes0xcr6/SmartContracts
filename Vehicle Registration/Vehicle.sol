@@ -42,7 +42,7 @@ contract Vehicle {
         return (plateNumber);
     }
 
-    function getCombustible() public view returns(string memory){
+    function getFuel() public view returns(string memory){
         if(isPetrol){
             return ("PETROL");
         }else{
