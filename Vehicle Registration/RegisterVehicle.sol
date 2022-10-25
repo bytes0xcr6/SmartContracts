@@ -5,6 +5,7 @@ pragma solidity >= 0.4;
 import "./Vehicle.sol";
 import "./Ownable.sol";
 
+// Register Vehicle contracts
 contract RegisterVehicles is Ownable {
 
     event VehicleRegistered(string plateNum, Vehicle contract_, uint totalAmount);
