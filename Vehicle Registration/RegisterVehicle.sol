@@ -23,6 +23,7 @@ contract RegisterVehicles is Ownable {
         string memory _plateNum = Vehicle(_vehicle).getPlateNum();
         registration[_plateNum] =  _vehicle;
         numVehicles++;
+        registered[_vehicle] = true;
         emit VehicleRegistered(_plateNum, _vehicle, numVehicles);
     }
 
