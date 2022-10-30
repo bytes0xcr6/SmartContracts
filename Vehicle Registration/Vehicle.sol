@@ -55,6 +55,7 @@ contract Vehicle {
         }
     }
     
+    // Get the legnth of the insuredPeople array
     function insuredPeopleLength() public view returns (uint) {
         return insuredPeople.length;
     }
