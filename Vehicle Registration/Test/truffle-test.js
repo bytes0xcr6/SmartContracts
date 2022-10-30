@@ -17,7 +17,7 @@ contract("Vehicle", accounts => {
         let instance = await Vehicle.deployed();
 
         let plateNumber = await instance.getPlateNum();
-        assert.equal("hola6", plateNumber);
+        assert.equal("CR6", plateNumber);
     })
 
     // Check the Fuel type
