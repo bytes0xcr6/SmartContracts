@@ -54,4 +54,8 @@ contract Vehicle {
             return("DIESEL");
         }
     }
+    
+    function insuredPeopleLength() public view returns (uint) {
+        return insuredPeople.length;
+    }
 }
