@@ -5,3 +5,6 @@
   <li>TokenFarm.sol: It will be the main contract and It will manage all the farming process</li>
   <li>JamToken.sol: Token to Stake</li>
   <li>StellarsToken.sol: Token that you receive for staking your Jam Tokens.</li>
+  <p></p>
+  
+![crypto-staking-main](https://user-images.githubusercontent.com/102038261/199265319-d9da37b5-d2f5-4206-950b-1c1383dba684.jpg)
