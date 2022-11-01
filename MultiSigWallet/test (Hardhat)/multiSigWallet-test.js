@@ -1,7 +1,6 @@
 const { ethers } = require("hardhat");
 const { expect } = require("chai");
 const { loadFixture } = require("ethereum-waffle");
-const { TransactionDescription } = require("ethers/lib/utils");
 
 // Ganache accounts (Testnet):
 // 1: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
@@ -37,7 +36,7 @@ describe("MultiSigWallet", function () {
   it("Submit a new transaction", async () => {
     const { multiSigWallet } = await loadFixture(deploy);
     await multiSigWallet.submitTransaction(
-      6,
+      9,
       "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
       "0x6e65775f6d6963726f7761766500000000000000000000000000000000000000"
     );
@@ -46,54 +45,48 @@ describe("MultiSigWallet", function () {
     expect(transactions).to.equal(1);
   });
 
-  it("Transfer 5 ethers from the 3 owners to the contract and check SC balance", async () => {
+  it("Approve Transaction with the 3 accounts", async () => {
     const { multiSigWallet } = await loadFixture(deploy);
     const [deployer, addr1, addr2] = await ethers.getSigners();
-    await deployer.sendTransaction({
-      to: multiSigWallet.address,
-      value: ethers.utils.parseEther("2.0"),
-    });
-    await addr1.sendTransaction({
-      to: multiSigWallet.address,
-      value: ethers.utils.parseEther("2.0"),
-    });
-    await addr2.sendTransaction({
-      to: multiSigWallet.address,
-      value: ethers.utils.parseEther("2.0"),
-    });
 
-    const ScBalance = await ethers.provider.getBalance(multiSigWallet.address);
-    expect(ScBalance).to.equal("6000000000000000000"); // 6000000000000000000 = 6 ethers
+    await multiSigWallet
+      .connect(deployer)
+      .approveTransaction(0, { value: ethers.utils.parseEther("3") });
+    await multiSigWallet
+      .connect(addr1)
+      .approveTransaction(0, { value: ethers.utils.parseEther("3") });
+    await multiSigWallet
+      .connect(addr2)
+      .approveTransaction(0, { value: ethers.utils.parseEther("3") });
+
+    const confirmations = await multiSigWallet.getConfirmations(0);
+
+    expect(confirmations).to.equal(3);
   });
-
-  // it("Approve Transaction with the 3 accounts", async () => {
-  //   const { multiSigWallet } = await loadFixture(deploy);
-  //   const [deployer, addr1, addr2] = await ethers.getSigners();
-
-  //   await multiSigWallet.connect(deployer).approveTransaction(1);
-  //   await multiSigWallet.connect(addr1).approveTransaction(1);
-  //   await multiSigWallet.connect(addr2).approveTransaction(1);
-
-  //   const confirmations = await multiSigWallet.getConfirmations(1);
-
-  //   expect(confirmations).to.equal(3);
-  // });
 
   it("Execute transaction and check if the amount arrived to the addr 3", async () => {
     const { multiSigWallet } = await loadFixture(deploy);
     const [deployer, addr1, addr2, addr3] = await ethers.getSigners();
 
-    await multiSigWallet.connect(deployer).executeTransaction(1);
+    const addr3BalanceBefore = await ethers.provider.getBalance(
+      "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+    );
 
-    const addr3Balance = await ethers.getBalance(addr3);
+    await multiSigWallet.connect(deployer).executeTransaction(0);
 
-    expect(addr3Balance).to.equal("6000000000000000000");
+    const addr3BalanceAfter = await ethers.provider.getBalance(
+      "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+    );
+
+    const addr3FinalBalance = addr3BalanceAfter - addr3BalanceBefore;
+
+    expect(addr3FinalBalance).to.be.greaterThan(8000000000000000000);
   });
 
   it("Check Executed value passed to true", async () => {
     const { multiSigWallet } = await loadFixture(deploy);
 
-    const executedValue = await multiSigWallet.checkExecuted(1);
+    const executedValue = await multiSigWallet.checkExecuted(0);
 
     expect(executedValue).to.equal(true);
   });
@@ -108,11 +101,17 @@ describe("MultiSigWallet", function () {
       "0x6e65775f6d6963726f7761766500000000000000000000000000000000000000"
     );
 
-    await multiSigWallet.connect(deployer).approveTransaction(2);
-    await multiSigWallet.connect(addr1).approveTransaction(2);
-    await multiSigWallet.connect(addr2).approveTransaction(2);
+    await multiSigWallet
+      .connect(deployer)
+      .approveTransaction(1, { value: ethers.utils.parseEther("3") });
+    await multiSigWallet
+      .connect(addr1)
+      .approveTransaction(1, { value: ethers.utils.parseEther("3") });
+    await multiSigWallet
+      .connect(addr2)
+      .approveTransaction(1, { value: ethers.utils.parseEther("3") });
 
-    const confirmations = await multiSigWallet.getConfirmations(2);
+    const confirmations = await multiSigWallet.getConfirmations(1);
 
     expect(confirmations).to.equal(3);
   });
@@ -121,9 +120,9 @@ describe("MultiSigWallet", function () {
     const { multiSigWallet } = await loadFixture(deploy);
     const [deployer, addr1, addr2] = await ethers.getSigners();
 
-    await multiSigWallet.connect(deployer).revokeConfirmation(2);
+    await multiSigWallet.connect(deployer).revokeConfirmation(1);
 
-    const confirmations = await multiSigWallet.getConfirmations(2);
+    const confirmations = await multiSigWallet.getConfirmations(1);
 
     expect(confirmations).to.equal(2);
   });
