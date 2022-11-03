@@ -12,4 +12,4 @@ When you submit the instance back to the level, the level is going to reclaim ki
 
 <h3>To solve the challenge we need to... </h3>
 
-<p>Create a malicius Smart Contract, where we will set the "fallback function" with a "revert" as default. We just need to send more "Prize" than the previous King to become the King and to trigger the transfer function from the "King" contract. It will never send the ethers to the new King, as the fallback function will keep reverting the transfer. So it is GAME OVER!</p>
+<p>Create a malicious Smart Contract, where we will set the "fallback function" with a "revert" as default. We just need to send more "Prize" than the previous King to become the King and to trigger the transfer function from the "King" contract. It will never send the ethers to the new King address (Malicious contract address), as the fallback function will keep reverting the transfer. So it is GAME OVER!</p>
