@@ -20,3 +20,5 @@ Things that might help
 
 Then we send a transaction to interact with the "fallBack function" and adding as a parameter the data "pwnFunction( )" to call the "pwn( )" function in the Delegate contract. Then it will set us as the Owner. 
 </p>
+
+```contract.sendTransaction({data: pwnFunction})```
