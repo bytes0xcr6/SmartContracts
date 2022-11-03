@@ -8,5 +8,5 @@
 
 <h3>To solve the challenge we need to... </h3>
 
-<p> As we know, all the information in Blockchain is public.</p> 
+<p> As we know, all the information in Blockchain is accessible.</p> 
 <p> For this challenge, I used NodeJS and a Script to make calls via an Alchemy node. In return, I got the password in byte code and in String :)</p>
