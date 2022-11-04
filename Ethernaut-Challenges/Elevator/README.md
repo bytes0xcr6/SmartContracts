@@ -16,7 +16,7 @@ Things that might help:
 
 As the function "goTo" from the contract "Elevator" calls the interface function twice and it needs a false value and then a true value. When it calls for the first time, it will get a false value and when it calls for the second time the interface function, it will return true value.</p>
 
-```
+```Solidity
 bool public toggle = true;
 
 // (toggle / true) = (!toggle / the oposite value of toggle) 
