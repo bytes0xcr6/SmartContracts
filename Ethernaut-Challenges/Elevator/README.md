@@ -15,3 +15,13 @@ Things that might help:
 <p>Fill out the Interface function that the "Elevator" contract is calling, as it is missing the function content. We just need to set the interface function to swtich a boolean value to its oposite value once the function has been called. (Example: True => False, False => True)
 
 As the function "goTo" from the contract "Elevator" calls the interface function twice and it needs a false value and then a true value. When it calls for the first time, it will get a false value and when it calls for the second time the interface function, it will return true value.</p>
+
+```
+bool public toggle = true;
+
+// (toggle / true) = (!toggle / the oposite value of toggle) 
+  function isLastFloor(uint) public returns(bool) {
+        toggle = !toggle;
+        return toggle;
+    }
+ ```
