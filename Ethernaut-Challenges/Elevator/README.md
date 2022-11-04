@@ -12,7 +12,7 @@ Things that might help:
 
 <h3>To solve the challenge we need to... </h3>
 
-<p>Fill out the Interface function that the "Elevator" contract is calling, as it is missing the function content. We just need to set the interface function to swtich a boolean value to its oposite value once the function has been called. (Example: True => False, False => True)
+<p>Fill out the Interface function that the "Elevator" contract is calling, as it is missing the function content. We just need to set the interface function to switch a boolean value to its opposite value once the function has been called. (Example: True => False, False => True)
 
 As the function "goTo" from the contract "Elevator" calls the interface function twice and it needs a false value and then a true value. When it calls for the first time, it will get a false value and when it calls for the second time the interface function, it will return true value.</p>
 
@@ -25,3 +25,5 @@ bool public toggle = true;
         return toggle;
     }
  ```
+
+<p>We could solve this vulnerability using view in the interface function, then It will only get information, instead of modifying the state.</p>
