@@ -2,6 +2,8 @@
 
 pragma solidity ^0.6.0;
 
+import "./Building.sol";
+
 contract Attacker{
 
     Elevator public elevator;
