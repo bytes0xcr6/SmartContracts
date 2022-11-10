@@ -8,8 +8,6 @@ contract GatekeeperOne {
   using SafeMath for uint256;
   address public entrant;
 
-  // I had to add this line of code as it was triggering an error, as for versions beyond 0.8.0 you are not allowed to add cast addresses into uints. 
-  uint256 txOrigin = uint256(uint160(tx.origin));
 
   modifier gateOne() {
     require(msg.sender != tx.origin);
