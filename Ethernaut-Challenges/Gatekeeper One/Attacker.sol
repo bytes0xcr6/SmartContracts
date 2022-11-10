@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+
 contract Attacker {
 
   // Player address: 0x16CE5622a5C99f39a59120131566B047F7E992c7
