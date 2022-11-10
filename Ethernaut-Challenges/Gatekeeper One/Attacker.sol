@@ -2,7 +2,6 @@ contract Attacker {
 
   // Player address: 0x16CE5622a5C99f39a59120131566B047F7E992c7
   // Player address 8bytes: 0x1566B047F7E992c7 (Last 16 digits)
-
   bytes8 txOrigin16 = 0x1566B047F7E992c7;
   bytes8 gateKey = txOrigin16 & 0xFFFFFFFF0000FFFF; // We mask with AND to get the key.
 
