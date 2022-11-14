@@ -1,11 +1,11 @@
 {
-  "name": "El Autito",
-  "description": "Este auto se transforma con el tiempo",
-  "image": "https://ipfs.io/ipfs/QmNvKXiGwtmUgvCFLKZvYc7TTy4H4QoFBMgY5Jc3DAXBnr/car_1.jpg",
+  "name": "Sport Car",
+  "description": "Time will transform the car",
+  "image": "https://cristianricharte6test.infura-ipfs.io/ipfs/Qmd9Vfi3y6CZWgnn1Zd6LMPu2y1HJvMq3udAvgygkr4yTw",
   "attributes": [
     {
-      "trait-type": "EtapaDelAuto",
-      "value": "Chico"
+      "trait-type": "Stage",
+      "value": "Sport"
     },
     {
       "trait-type": "Color",
