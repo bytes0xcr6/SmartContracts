@@ -148,7 +148,7 @@ contract CarDynamicNFT is
     }
 
     function pympMyRide(uint256 _tokenId) public {
-        require(carLevel(_tokenId) < 2, "Maximo nivel alcanzado!");
+        require(carLevel(_tokenId) < 2, "Max level reached!");
         //if(carLevel(_tokenId) >= 2) {return;}
         string memory newUri = "";
         // It gets the actual value of the car and increases 1.
