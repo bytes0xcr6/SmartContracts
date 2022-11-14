@@ -1,4 +1,4 @@
-# Dynamic NFTs using Chainlink VRF (Verified Random Number) & Chainlink Automation
+# Dynamic NFTs using Chainlink VRF (Verifiable Randomness Function) & Chainlink Automation
 
 This is a Dynamic NFT project where the NFT can change with time. It has 3 stages:
 
