@@ -20,3 +20,5 @@ Also, I am subscribing to <a href="https://vrf.chain.link/">Chainlink VRF</a> to
 # Chainlink Automation
 
 5. To evolve the NFT and make it Dynamic. We will subscribe to Chainlink automation and we will pass the contract address. It will check the value `Interval` in seconds given in the Constructor. It will use the function `performUpKeep()` to check the requirements and then, call the function `performUpKeep()`. It will change the level of the token and its URI, so another picture and values will be displayed and owned.
+
+<a href="https://testnets.opensea.io/es/collection/cardnft-myazwalx9i">Real example deployed</a>
