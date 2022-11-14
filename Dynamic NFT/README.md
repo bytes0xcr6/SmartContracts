@@ -15,6 +15,8 @@ Also, I am subscribing to <a href="https://vrf.chain.link/">Chainlink VRF</a> to
 1. Subscribe to VRF adding LINK.
 2. Adjust the subscription details in the Smart contract. (Key hash and VRF Coordinator)
 3. Add consumer address (Contract address) to allow request random numbers.
-4. Start requestin VRF and when minting a new NFT.
+4. Start requestin VRF and when minting a new NFT. (Manually)
 
 # Chainlink Automation
+
+5. To automate this process, we will subscribe to Chainlink automation and we will pass the contract address. It will check the value `Interval` in seconds given in the Constructor. It will use the function `performUpKeep()` to check the requirements and then, call the function `performUpKeep()`.
