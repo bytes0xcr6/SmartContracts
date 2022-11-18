@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
 
-//Smart contract for the Tokens to stake.
+//Smart contract for the Staking rewards. 
 pragma solidity ^0.8.4;
 
-contract JamToken{
+contract StellarsToken{
 
     // Initial Declarations
-    string public name = "JAM Token";
-    string public symbol = "JAM";
+    string public name = "Stellars Token";
+    string public symbol = "STE";
     uint256 public totalSupply = 1000000000000000000000000; // 1 Million tokens (24 zeros, as it will have decimals)
     uint256 public decimals = 18;
 
