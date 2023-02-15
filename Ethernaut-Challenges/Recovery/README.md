@@ -6,3 +6,7 @@ A contract creator has built a very simple token factory contract. Anyone can cr
 This level will be completed if you can recover (or remove) the 0.001 ether from the lost contract address.
 
 # To solve this challenge we need to..
+
+1- Check in EtherScan (Or any other blockchain Scan) the contract fabric. Once we find it we will see the contract address created from the fabric (Recovery.sol).
+
+2- We just need to call the function "destroy()" that includes a "selfdestruct()", once we call it we need to pass the address where we would like to receive the Matics/Ethers and the contract will be destroyed.
