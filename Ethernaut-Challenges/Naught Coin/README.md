@@ -9,7 +9,7 @@ Things that might help:
 
 ## To solve the challenge we need to...
 
-The function "Transfer()" does not allow us to make any transfer as it will require 10 years to transfer the tokens. We need to take into account that "Transfer ()" is no the only function in the ERC20 contract to make transfers. So we can use "TransferFrom()".
+The function "Transfer()" does not allow us to make any transfer as it will require 10 years to transfer the tokens. But we need to take into account that "Transfer ()" is no the only function in the ERC20 contract to make transfers. So we can use "TransferFrom()".
 
 1. We need to approve ourself to manage the tokens with the function "approve()". As this is a requirement for using "TransferFrom()".
 2. We just call the function "TransferFrom()" passing as a parameter "from" our address, "to" any other address & "amount" the INITIAL_SUPPLY.
