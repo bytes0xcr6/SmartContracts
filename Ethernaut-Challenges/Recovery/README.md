@@ -9,4 +9,4 @@ This level will be completed if you can recover (or remove) the 0.001 ether from
 
 1- Check in EtherScan (Or any other blockchain Scan) the contract fabric. Once we find it we will see the contract address created from the fabric (Recovery.sol).
 
-2- We just need to call the function "destroy()" that includes a "selfdestruct()", once we call it we need to pass the address where we would like to receive the Matics/Ethers and the contract will be destroyed.
+2- We just need to call the function "destroy()" that includes a "self-destruct()", we need to pass a contract address with a "receive()" function where we would like to receive the Matics/Ethers. Once we call it the contract will be destroyed and the funds will be transferred to the contract address passed as a parameter.
