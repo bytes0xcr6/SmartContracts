@@ -27,6 +27,9 @@ You've uncovered an Alien contract. Claim ownership to complete the level.
   // Slot 1 =  codex[]
 ```
 1- Switch contact to true. (Modifier)
+
 2- Underflow the array to go to the previous Storage slot. (Slot 0) (Where the _owner is stored)
+
 3- After underflowing the array we need to get in which slot is the owner.
+
 4- Modify the slot 0 (owner) with the caller address.
