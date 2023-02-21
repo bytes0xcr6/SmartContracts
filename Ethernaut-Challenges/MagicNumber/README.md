@@ -35,7 +35,7 @@ Understand how OPCODES WORK, here there are some links:
 // PUSH1 0x6000 ("p"OSITION IN MEMORY) for RETURN
 // RETURN 0Xf3 ( Return Value of Size "s" at position "p").
 
-// Inicialization opcode: 0x600a600c600039600a60000f3 (12 bytes)
+// Inicialization opcode: 0x600a600c600039600a6000f3 (12 bytes)
 
 // ----- STORE PROCESS (5 BYTES) ----
 // PUSH1 0X602a (v- VALUE 42 = 0x2a)
@@ -59,13 +59,13 @@ Understand how OPCODES WORK, here there are some links:
 1. set the variable with the byte code for the inicialization + Runtime opcode
 
 ```
-    const bytecode = 600a600c600039600a60000f3602a60505260206050f3; 
-```
+    const bytecode = "600a600c600039600a6000f3602a60505260206050f3"; 
+```                   
     
 2. deploy the contract
 
 ``` 
-    contract42 = await web3.eth.sendTransaction({from: player, data: bytecode}); 
+    const contract42 = await web3.eth.sendTransaction({from: player, data: bytecode}); 
 ```
   
 3. After deploying the contract we can set the address Solver in the target contract
