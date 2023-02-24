@@ -14,5 +14,6 @@ If you can deny the owner from withdrawing funds when they call withdraw() (whil
 ## To solve it we need to...
 1. Become a partner by calling the function setWithdrawPartner() by a contract;
 2. Set the fallback function with the logic to run it until the gas is finished, so it won´t go till the next line of the withdrawn() function and the owner will never receive funds. (Of course, until another address becomes the partnet)
-- To require that the gas is finished and not refunded, we need to use "assert()". Check image below:
+- To require that the gas is finished and not refunded, we need to use "assert()" or create a loop with "while(true) { "do nothing"}. 
+Check image below:
 <img width="538" alt="image" src="https://user-images.githubusercontent.com/102038261/221175597-923e6f06-f0c6-4286-a4d4-36e6ea972bd4.png">
